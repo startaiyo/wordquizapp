@@ -9,12 +9,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import history from './history';
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter　history={history}>
       <Switch>
         <Route path="/" component={WordQuiz}/>
       </Switch>

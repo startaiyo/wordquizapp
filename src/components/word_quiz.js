@@ -9,7 +9,7 @@ class WordQuiz extends Component{
      this.state={
         value: 5,
         msg: null,
-        cm: null
+        cm: null,
      };
      this.handleChange=this.handleChange.bind(this);
      this.handleSubmit=this.handleSubmit.bind(this);
@@ -17,13 +17,14 @@ class WordQuiz extends Component{
     componentDidMount=()=>{
         this.props.getWords()
     }
+
     renderWords(){
         return <div className="question">
             {this.props.words.word.word}
             <form onSubmit={this.handleSubmit}>
             {this.props.words.words.map((item,i) => <label key={i}><input type="radio" value={item.word} onChange={this.handleChange} checked={this.state.value === item.word}/>{item.meaning}</label>)}
             <p><input type="submit" value="回答"/></p>
-            {this.state.msg && <p><strong>{this.state.msg}</strong><a href = "/">次の問いへ</a></p>}
+            {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
             <a href = "http://localhost:3000">単語アプリに戻る</a>
  　　　　</div> 
