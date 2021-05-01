@@ -18,7 +18,7 @@ class WordQuiz extends Component{
     }
 
     renderWords(){
-        if(this.props.words.words === undefined || this.props.words.words.length > 3 ){
+        if(this.props.words.words === undefined || this.props.words.words.length < 3 ){
         return <div>4つ以上の単語を登録してください
         <a href = {ROOT_URL}>単語アプリに戻る</a></div>
         }else{
