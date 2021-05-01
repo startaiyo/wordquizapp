@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getWords, ansWord, misWord} from '../actions';
 import _ from 'lodash';
-import {Link} from 'react-router-dom';
 class WordQuiz extends Component{
     constructor(props){
      super(props);
@@ -26,7 +25,7 @@ class WordQuiz extends Component{
             <p><input type="submit" value="回答"/></p>
             {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
-            <a href = "http://localhost:3000">単語アプリに戻る</a>
+            <a href = "http://startaiyo-site.herokuapp.com/">単語アプリに戻る</a>
  　　　　</div> 
     }
     handleChange(e){
