@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getWords, ansWord, misWord} from '../actions';
+import ROOT_URL, {getWords, ansWord, misWord} from '../actions';
 import _ from 'lodash';
 class WordQuiz extends Component{
     constructor(props){
@@ -25,7 +25,7 @@ class WordQuiz extends Component{
             <p><input type="submit" value="回答"/></p>
             {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
-            <a href = "http://startaiyo-site.herokuapp.com/">単語アプリに戻る</a>
+            <a href = {ROOT_URL}>単語アプリに戻る</a>
  　　　　</div> 
     }
     handleChange(e){
