@@ -15,7 +15,7 @@ class WordQuiz extends Component{
      this.handleSubmit=this.handleSubmit.bind(this);
     }
     componentDidMount=()=>{
-        this.props.getWords()
+        this.props.getWords(window.location.search)
     }
 
     renderWords(){
