@@ -2,7 +2,7 @@ import axios from 'axios'
 export const GET_WORDS = 'GET_WORDS'
 export const ANS_WORD = 'ANS_WORD'
 export const MIS_WORD = 'MIS_WORD'
-const ROOT_URL = 'http://startaiyo-site.herokuapp.com/'
+const ROOT_URL = 'https://startaiyo-site.herokuapp.com/'
 const QUERYSTRING = `?user_id=`
 export const getWords = () => async dispatch=>{
     console.log(window.location.search)
