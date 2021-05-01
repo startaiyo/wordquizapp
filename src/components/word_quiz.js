@@ -18,6 +18,10 @@ class WordQuiz extends Component{
     }
 
     renderWords(){
+        if(this.props.words.words === undefined || this.props.words.words.length > 3 ){
+        return <div>4つ以上の単語を登録してください
+        <a href = {ROOT_URL}>単語アプリに戻る</a></div>
+        }else{
         return <div className="question">
             {this.props.words.word.word}
             <form onSubmit={this.handleSubmit}>
@@ -25,8 +29,8 @@ class WordQuiz extends Component{
             <p><input type="submit" value="回答"/></p>
             {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
-            <a href = {ROOT_URL}>単語アプリに戻る</a>
- 　　　　</div> 
+            <a href = {ROOT_URL}>単語アプリに戻る</a></div>
+        }
     }
     handleChange(e){
         console.log(e.target.value)
