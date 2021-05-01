@@ -1,6 +1,5 @@
 import './App.css';
-import React, {Component} from 'react';
-import WordQuiz from './components/word_quiz';
+import React from 'react';
 
 function App() {
   return (

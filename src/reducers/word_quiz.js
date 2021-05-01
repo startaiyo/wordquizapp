@@ -8,7 +8,7 @@ export default (words = {words:[{created_at: "2021-04-29T02:39:10.772Z",id: 66,j
             return action.response.data
         case ANS_WORD:
         case MIS_WORD:
-        console.log(action.response.data)
+        console.log(action)
             const data = action.response.data
             return {...words,[data]: data}
         default:
