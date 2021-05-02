@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ROOT_URL, {getWords, ansWord, misWord} from '../actions';
 import _ from 'lodash';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
-
+library.add(fas)
 class WordQuiz extends Component{
     constructor(props){
      super(props);
+     const {classes} = props;
      this.state={
         value: 5,
         msg: null,
@@ -30,10 +34,10 @@ class WordQuiz extends Component{
             {this.props.words.word.word}
             <form onSubmit={this.handleSubmit}>
             {this.props.words.words.map((item,i) => <label key={i}><input type="radio" value={item.word} onChange={this.handleChange} checked={this.state.value === item.word}/>{item.meaning}</label>)}
-            <input type="submit" value="回答"/>
+            <Button variant="contained outlined" color="primary" className="MuiButton-outlinedPrimary MuiButton-startIcon" type="submit">回答<FontAwesomeIcon icon={["fas", "location-arrow"]} /></Button>
             {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
-            <a href = {ROOT_URL}>単語アプリに戻る</a></div>
+            <a href={ROOT_URL}>単語アプリに戻る</a></div>
         }
     }
     handleChange(e){
