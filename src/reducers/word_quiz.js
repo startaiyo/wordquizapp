@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import {GET_WORDS, ANS_WORD, MIS_WORD} from '../actions'
+import wlist from '../wlist'
 
 export default (words = {}, action) =>{
     switch(action.type){

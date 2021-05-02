@@ -8,19 +8,21 @@ import WordQuiz from './components/word_quiz';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={WordQuiz}/>
-      </Switch>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root')
+  <MuiThemeProvider>  
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={WordQuiz}/>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
+  </MuiThemeProvider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

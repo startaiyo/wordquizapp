@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ROOT_URL, {getWords, ansWord, misWord} from '../actions';
 import _ from 'lodash';
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+
 class WordQuiz extends Component{
     constructor(props){
      super(props);
@@ -13,6 +16,7 @@ class WordQuiz extends Component{
      this.handleChange=this.handleChange.bind(this);
      this.handleSubmit=this.handleSubmit.bind(this);
     }
+  
     componentDidMount=()=>{
         this.props.getWords(window.location.search)
     }
@@ -26,7 +30,7 @@ class WordQuiz extends Component{
             {this.props.words.word.word}
             <form onSubmit={this.handleSubmit}>
             {this.props.words.words.map((item,i) => <label key={i}><input type="radio" value={item.word} onChange={this.handleChange} checked={this.state.value === item.word}/>{item.meaning}</label>)}
-            <p><input type="submit" value="回答"/></p>
+            <input type="submit" value="回答"/>
             {this.state.msg && <p><strong>{this.state.msg}</strong><a href={"/"+this.props.location.search}>次の問いへ</a></p>}
             </form>
             <a href = {ROOT_URL}>単語アプリに戻る</a></div>
