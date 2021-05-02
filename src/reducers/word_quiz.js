@@ -2,7 +2,7 @@ import _ from 'lodash'
 import {GET_WORDS, ANS_WORD, MIS_WORD} from '../actions'
 import wlist from '../wlist'
 
-export default (words = {}, action) =>{
+export default (words = wlist, action) =>{
     switch(action.type){
         case GET_WORDS:
             console.log(action.response.data)
